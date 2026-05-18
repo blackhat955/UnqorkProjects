@@ -1,10 +1,10 @@
-# 🏨 Hotel Booking App — Unqork No-Code POC
+# Hotel Booking App — Unqork No-Code POC
 
 > A proof-of-concept Hotel Booking application built on the **Unqork enterprise no-code platform** (Centauri 1.0), demonstrating end-to-end form configuration, data submission, and multi-module application design.
 
 ---
 
-## 📌 Project Summary
+## Project Summary
 
 | Field | Details |
 |---|---|
@@ -16,7 +16,7 @@
 
 ---
 
-## 🧱 Application Architecture
+## Application Architecture
 
 The app consists of **two Front-End modules** inside the `HotelBooking` workspace:
 
@@ -48,7 +48,7 @@ HotelBooking (Workspace)
 
 ---
 
-## ✅ Unqork Concepts Demonstrated
+## Unqork Concepts Demonstrated
 
 - **Module Builder** — drag-and-drop component configuration
 - **Plug-in Component** — `Create Module Submission(s)` internal service
@@ -63,7 +63,7 @@ HotelBooking (Workspace)
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Module Builder — Guest Registration
 
@@ -132,7 +132,7 @@ HotelBooking (Workspace)
 
 ---
 
-## 🗂 Repository Structure
+## Repository Structure
 
 ```
 HotelBookingApp/
@@ -158,20 +158,6 @@ HotelBookingApp/
         └── 17_plugin_input_mapping_extended.png
 ```
 
-> **To update screenshots:** Replace any image in `assets/screenshots/` keeping the same filename. The README will automatically reference the updated image on GitHub.
-
----
-
-## 🚀 How to Run / View
-
-This is a no-code application hosted on Unqork's training environment. There is no local setup required.
-
-1. Access requires a Unqork Academy account at [academy.unqork.com](https://academy.unqork.com)
-2. Request training environment access at [unqork.com/academy](https://unqork.com/academy)
-3. Log into `trainingx.unqork.io` with your credentials
-4. Navigate to the `HotelBooking` workspace to view the modules
-
----
 
 ## 📄 License
 
