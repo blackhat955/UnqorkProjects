@@ -1,10 +1,10 @@
-# Hotel Booking App — Unqork No-Code POC
+# 🏥 Patient Medical Application — Unqork No-Code POC
 
-> A proof-of-concept Hotel Booking application built on the **Unqork enterprise no-code platform** (Centauri 1.0), demonstrating end-to-end form configuration, data submission, and multi-module application design.
+> A proof-of-concept Patient Medical Application built on the **Unqork enterprise no-code platform** (Centauri 1.0), demonstrating advanced form configuration, conditional business logic, module definition reuse, and multi-section medical data collection.
 
 ---
 
-## Project Summary
+## 📌 Project Summary
 
 | Field | Details |
 |---|---|
@@ -12,151 +12,139 @@
 | **Runtime** | Centauri 1.0 |
 | **Module Type** | Front-End |
 | **Builder** | Durgesh Tiwari |
+| **Background** | MS Data Science, Indiana University Bloomington |
+| **GitHub** | [blackhat955](https://github.com/blackhat955) |
 
 ---
 
-## Application Architecture
+## 🧱 Application Architecture
 
-The app consists of **two Front-End modules** inside the `HotelBooking` workspace:
+The app consists of a **single Front-End module** inside the `HotelBooking` workspace with four major sections:
 
 ```
 HotelBooking (Workspace)
-├── HotelBooking (Module — Guest Registration)
-│   ├── firstName          → Text Field (Required)
-│   ├── lastName           → Text Field (Required)
-│   ├── age                → Text Field
-│   ├── phoneNumber        → Text Field (Required)
-│   ├── addressSearch      → Address Search Component
-│   ├── dateinputStart     → Date Input
-│   ├── dateinputEnd       → Date Input
-│   ├── rule               → Decision Component
-│   └── plugSubmitForm     → Plug-in (Create Module Submission)
-│
-└── paymentflow (Module — Payment Processing)
-    ├── cardHolderFirstName → Text Field (Required)
-    ├── cardHolderLastName  → Text Field (Required)
-    ├── cardNumber          → Text Field (Required)
-    ├── expiryDate          → Date Field (Required)
-    ├── cvv                 → Text Field (Required)
-    ├── billingAddress      → Address Search Component
-    ├── totalAmount         → Number Field (Required)
-    ├── paymentMethod       → Dropdown (Required)
-    ├── paymentRule         → Decision Component
-    └── plugPaymentSubmit   → Plug-in (Create Module Submission)
+└── PatientMedicalApplication (Module)
+    │
+    ├── Patient Information Section
+    │   ├── firstName              → Text Field (Required)
+    │   ├── lastName               → Text Field (Required)
+    │   ├── dob                    → Date Input (Required)
+    │   ├── age                    → Number Field (Auto-calculated, Disabled)
+    │   ├── calcAge                → Calculator (MOMENT formula)
+    │   ├── ruleCheckAge           → Decision Component (Age validation)
+    │   ├── phoneNumber            → Phone Number Field (Required)
+    │   ├── email                  → Text Field with Email Validation (Required)
+    │   ├── maritalStatus          → Blood Type Dropdown (Required)
+    │   ├── usCitizen              → Radio (Do you have health insurance?)
+    │   ├── ruleDisplaySSN         → Decision Component (Show/Hide insurance panel)
+    │   └── panelSSN               → Panel (Insurance Policy Number — conditional)
+    │
+    ├── Medical History Section
+    │   ├── companyName            → Primary Care Physician Name (Required)
+    │   ├── companyWebsite         → Hospital / Clinic Name
+    │   ├── businessPhoneNumber    → Emergency Contact Phone Number (Required)
+    │   ├── businessType           → Visit Type Dropdown (Required)
+    │   └── businessPlan           → Reason for Visit / Symptoms (Required)
+    │
+    ├── Treatment Request Section
+    │   ├── loanAmount             → Estimated Treatment Cost Slider ($0 to $100,000)
+    │   ├── loanProposal           → Treatment / Procedure Description (Required)
+    │   ├── estimatedAnnualRevenue → Annual Household Income (Required)
+    │   ├── creditScore            → Pain Level 0 to 10 Scale (Required)
+    │   └── yearsInBusiness        → Duration of Symptoms in Days (Required)
+    │
+    └── Optional Medical Survey + Confirmation
+        ├── radioAppliedBefore     → Have you visited this clinic before?
+        ├── ruleLoanAppliedBefore  → Decision (Show/Hide date of last visit)
+        ├── dateLastAppliedLoan    → Date of Last Visit (conditional)
+        ├── checkboxesHearAboutUs  → How did you hear about us?
+        ├── checkboxConfirmation   → Certification Checkbox (Required)
+        └── btnSubmit              → Submit Medical Application Button
 ```
 
 ---
 
-## Unqork Concepts Demonstrated
+## ✅ Unqork Concepts Demonstrated
 
-- **Module Builder** — drag-and-drop component configuration
-- **Plug-in Component** — `Create Module Submission(s)` internal service
-- **Input Mapping** — 7 fields mapped to Unqork data model
-- **Address Search Component** — Google Places API with manual field fallback
-- **Form Validation** — required field enforcement
-- **Button Component** — Save action type with `Disable on Invalid Forms`
+- **Module Definition Reuse** — repurposed an existing application module via Copy/Paste Module Definition, demonstrating cross-project configuration portability
+- **Decision Components** — conditional logic to show/hide Insurance Policy Number panel based on health insurance selection
+- **Calculator / Transformer** — auto-calculates patient age from Date of Birth using MOMENT formula
+- **Accordion Panel** — collapsible Optional Medical Survey section
+- **Form Validation** — required field enforcement with red asterisk indicators
+- **Dropdown Components** — Blood Type (A+, A-, B+, B-, AB+, AB-, O+, O-, Unknown) and Visit Type with custom data values
+- **Phone Number Mask** — formatted input for phone fields
+- **Email Validation** — regex pattern validation on email field
+- **Range Slider** — Estimated Treatment Cost slider from $0 to $100,000
 - **Columns Layout** — two-column responsive form design
-- **Decision / Rule Component** — conditional business logic
 - **Express View** — end-user preview and testing
-- **Multi-Module Design** — separate registration and payment flows
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-### Module Builder — Guest Registration
+### Patient Information
 
-**Overview of the HotelBooking module in Unqork Designer**
-![Module Builder Overview](assets/screenshots/01_module_builder_overview.png)
+**Patient Information — top section with Blood Type dropdown and Health Insurance radio**
+![Patient Information Top](assets/screenshots/01_patient_information_top.png)
 
-**Address Search and Date components configuration**
-![Module Builder Address and Dates](assets/screenshots/02_module_builder_address_dates.png)
+**Address and additional patient fields**
+![Address and Patient Fields](assets/screenshots/02_address_business_info.png)
 
-**Final module layout with Submit button and plugSubmitForm**
-![Module Builder Final](assets/screenshots/16_module_builder_final.png)
-
----
-
-### Express View — End User Form
-
-**Top section — Name, Age, Phone Number fields**
-![Express View Top](assets/screenshots/03_express_view_top.png)
-
-**Bottom section — Address, Dates, Submit button**
-![Express View Bottom](assets/screenshots/04_express_view_bottom.png)
-
-**Form filled with test data**
-![Express View Filled](assets/screenshots/14_express_view_filled_form.png)
-
-**Full form view**
-![Express View Full](assets/screenshots/15_express_view_full_form.png)
-
-**Address test — manual fields active**
-![Express View Address Test](assets/screenshots/13_express_view_address_test.png)
+**Clean Patient Information form view**
+![Patient Information Clean](assets/screenshots/05_patient_information_clean.png)
 
 ---
 
-### Plug-in Component Configuration
+### Medical History and Treatment Request
 
-**Service Type and Internal Service selection**
-![Plugin Service Config](assets/screenshots/10_plugin_service_config.png)
+**Medical History section — Primary Care Physician, Hospital, Emergency Contact, Visit Type, Symptoms**
+![Medical History](assets/screenshots/06_medical_history_treatment.png)
 
-**Internal Service dropdown — Create Module Submission(s) selected**
-![Plugin Internal Service](assets/screenshots/11_plugin_internal_service_dropdown.png)
-
-**Data Source URL auto-populated by Unqork**
-![Plugin Data Source URL](assets/screenshots/12_plugin_datasource_url.png)
-
-**Input Mapping — all 7 fields mapped to data model**
-![Plugin Input Mapping](assets/screenshots/05_plugin_input_mapping.png)
-
-**Extended Input Mapping view (rows 3–7)**
-![Plugin Input Mapping Full](assets/screenshots/06_plugin_input_mapping_full.png)
-
-**Complete mapping including End Date and Phone Number**
-![Plugin Input Mapping Extended](assets/screenshots/17_plugin_input_mapping_extended.png)
+**Loan Request and Optional Survey section**
+![Loan Request Survey](assets/screenshots/03_loan_request_survey.png)
 
 ---
 
-### Payment Flow Module
+### Optional Medical Survey and Submit
 
-**Payment Information — Card Details section**
-![Payment Module Card Details](assets/screenshots/07_payment_module_card_details.png)
+**Survey bottom section with checkboxes and submit button**
+![Survey Submit](assets/screenshots/04_survey_submit.png)
 
-**Billing Address and Payment Summary**
-![Payment Module Billing](assets/screenshots/08_payment_module_billing.png)
-
-**Payment Summary with Submit Payment button**
-![Payment Module Summary](assets/screenshots/09_payment_module_summary.png)
+**Optional Medical Survey with clinic visit history, referral source checkboxes, certification, and Submit Medical Application button**
+![Survey and Submit Medical](assets/screenshots/07_survey_submit_medical.png)
 
 ---
 
-## Repository Structure
+## 🗂 Repository Structure
 
 ```
-HotelBookingApp/
+PatientMedicalApp/
 ├── README.md
 └── assets/
     └── screenshots/
-        ├── 01_module_builder_overview.png
-        ├── 02_module_builder_address_dates.png
-        ├── 03_express_view_top.png
-        ├── 04_express_view_bottom.png
-        ├── 05_plugin_input_mapping.png
-        ├── 06_plugin_input_mapping_full.png
-        ├── 07_payment_module_card_details.png
-        ├── 08_payment_module_billing.png
-        ├── 09_payment_module_summary.png
-        ├── 10_plugin_service_config.png
-        ├── 11_plugin_internal_service_dropdown.png
-        ├── 12_plugin_datasource_url.png
-        ├── 13_express_view_address_test.png
-        ├── 14_express_view_filled_form.png
-        ├── 15_express_view_full_form.png
-        ├── 16_module_builder_final.png
-        └── 17_plugin_input_mapping_extended.png
+        ├── 01_patient_information_top.png
+        ├── 02_address_business_info.png
+        ├── 03_loan_request_survey.png
+        ├── 04_survey_submit.png
+        ├── 05_patient_information_clean.png
+        ├── 06_medical_history_treatment.png
+        └── 07_survey_submit_medical.png
 ```
 
+> **To update screenshots:** Replace any image in `assets/screenshots/` keeping the same filename. The README will automatically reference the updated image on GitHub.
+
+---
+
+## 🚀 How to View
+
+This is a no-code application hosted on Unqork's training environment. There is no local setup required.
+
+1. Access requires a Unqork Academy account at [academy.unqork.com](https://academy.unqork.com)
+2. Request training environment access at [unqork.com/academy](https://unqork.com/academy)
+3. Log into `trainingx.unqork.io` with your credentials
+4. Navigate to the `HotelBooking` workspace and open the `PatientMedicalApplication` module
+
+---
 
 ## 📄 License
 
