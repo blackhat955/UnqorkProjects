@@ -80,7 +80,7 @@ HotelBooking (Workspace)
 
 ## Screenshots
 ### Total Project
-![Patient Information Top](assets/screenshots/01_patient_information_top.png)
+![Patient Information Top](assets/screenshots/Screenshot 2026-05-19 at 11.51.19.png)
 ### Patient Information
 
 **Patient Information — top section with Blood Type dropdown and Health Insurance radio**
