@@ -12,8 +12,6 @@
 | **Runtime** | Centauri 1.0 |
 | **Module Type** | Front-End |
 | **Builder** | Durgesh Tiwari |
-| **Background** | MS Data Science, Indiana University Bloomington |
-| **GitHub** | [blackhat955](https://github.com/blackhat955) |
 
 ---
 
