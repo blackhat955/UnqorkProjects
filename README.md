@@ -1,10 +1,10 @@
-# 🏥 Patient Medical Application — Unqork No-Code POC
+# Patient Medical Application — Unqork No-Code POC
 
 > A proof-of-concept Patient Medical Application built on the **Unqork enterprise no-code platform** (Centauri 1.0), demonstrating advanced form configuration, conditional business logic, module definition reuse, and multi-section medical data collection.
 
 ---
 
-## 📌 Project Summary
+## Project Summary
 
 | Field | Details |
 |---|---|
@@ -17,7 +17,7 @@
 
 ---
 
-## 🧱 Application Architecture
+## Application Architecture
 
 The app consists of a **single Front-End module** inside the `HotelBooking` workspace with four major sections:
 
@@ -64,7 +64,7 @@ HotelBooking (Workspace)
 
 ---
 
-## ✅ Unqork Concepts Demonstrated
+## Unqork Concepts Demonstrated
 
 - **Module Definition Reuse** — repurposed an existing application module via Copy/Paste Module Definition, demonstrating cross-project configuration portability
 - **Decision Components** — conditional logic to show/hide Insurance Policy Number panel based on health insurance selection
@@ -80,7 +80,7 @@ HotelBooking (Workspace)
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Patient Information
 
@@ -115,7 +115,7 @@ HotelBooking (Workspace)
 
 ---
 
-## 🗂 Repository Structure
+## Repository Structure
 
 ```
 PatientMedicalApp/
@@ -135,7 +135,7 @@ PatientMedicalApp/
 
 ---
 
-## 🚀 How to View
+## How to View
 
 This is a no-code application hosted on Unqork's training environment. There is no local setup required.
 
@@ -146,6 +146,6 @@ This is a no-code application hosted on Unqork's training environment. There is 
 
 ---
 
-## 📄 License
+## License
 
 This project is a personal proof-of-concept built for portfolio and learning purposes on the Unqork Academy training environment.
